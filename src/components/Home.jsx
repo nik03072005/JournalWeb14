@@ -132,7 +132,7 @@ export default function Home() {
         </div>
 
         {/* Content container */}
-        <div className="relative z-10 flex-1 flex flex-col justify-center items-center">
+        <div className="relative z-10 flex-1 flex flex-col justify-center items-center pb-16 sm:pb-20 md:pb-24">
           <div className="flex flex-col text-center px-6 sm:px-8 lg:px-12 mx-auto max-w-5xl py-12">
             <div className="w-full">
               {/* Content Section */}
@@ -145,56 +145,56 @@ export default function Home() {
                   Welcome to Kamargaon College
                 </h1>
 
-                <p className="text-sm md:text-base text-white font-medium max-w-3xl mx-auto leading-relaxed drop-shadow-md" style={{textShadow: '0 0 20px rgba(255,255,255,0.7), 0 0 40px rgba(255,255,255,0.4), 2px 2px 4px rgba(0,0,0,0.7)'}}>
+                <p className="text-sm md:text-base text-white font-medium max-w-3xl mx-auto leading-relaxed drop-shadow-md mb-8" style={{textShadow: '0 0 20px rgba(255,255,255,0.7), 0 0 40px rgba(255,255,255,0.4), 2px 2px 4px rgba(0,0,0,0.7)'}}>
                   Access millions of academic resources, research papers, and digital collections.
                   Your gateway to unlimited knowledge in the digital age.
                 </p>
+
+                {/* Search Bar - Integrated with text content */}
+                <div className="w-full max-w-3xl mx-auto px-4 mb-8 sm:mb-12 md:mb-16">
+                  <div className="flex w-full bg-white rounded-lg overflow-hidden shadow-xl mb-4">
+                    <input
+                      type="text"
+                      placeholder="Search books, articles, research papers..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' && searchTerm.trim()) {
+                          window.location.href = `/search/${encodeURIComponent(searchTerm.trim())}`;
+                        }
+                      }}
+                      className="px-4 py-2.5 w-full text-gray-800 placeholder-gray-500 focus:outline-none text-sm md:text-base"
+                      aria-label="Search for academic resources"
+                    />
+                    <Link
+                      href={searchTerm.trim() ? `/search/${encodeURIComponent(searchTerm.trim())}` : "#"}
+                      className={`px-5 py-2.5 text-black hover:text-gray-700 transition-all font-bold text-sm md:text-base ${
+                        !searchTerm.trim() ? 'opacity-50 cursor-not-allowed' : ''
+                      }`}
+                      aria-label="Submit search"
+                    >
+                      SEARCH
+                    </Link>
+                  </div>
+
+                  <div className="text-center">
+                    <Link
+                      href="/advanceSearch"
+                      className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-all shadow-lg hover:shadow-xl font-medium text-xs"
+                      aria-label="Advanced Search"
+                    >
+                      Advance Search
+                    </Link>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-
-          {/* Search Bar - Integrated into content */}
-          <div className="w-full max-w-3xl mx-auto px-4 mt-8">
-            <div className="flex w-full bg-white rounded-lg overflow-hidden shadow-xl mb-4">
-              <input
-                type="text"
-                placeholder="Search books, articles, research papers..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' && searchTerm.trim()) {
-                    window.location.href = `/search/${encodeURIComponent(searchTerm.trim())}`;
-                  }
-                }}
-                className="px-4 py-2.5 w-full text-gray-800 placeholder-gray-500 focus:outline-none text-sm md:text-base"
-                aria-label="Search for academic resources"
-              />
-              <Link
-                href={searchTerm.trim() ? `/search/${encodeURIComponent(searchTerm.trim())}` : "#"}
-                className={`px-5 py-2.5 text-black hover:text-gray-700 transition-all font-bold text-sm md:text-base ${
-                  !searchTerm.trim() ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
-                aria-label="Submit search"
-              >
-                SEARCH
-              </Link>
-            </div>
-
-            <div className="text-center">
-              <Link
-                href="/advanceSearch"
-                className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-all shadow-lg hover:shadow-xl font-medium text-xs"
-                aria-label="Advanced Search"
-              >
-                Advance Search
-              </Link>
             </div>
           </div>
         </div>
       </div>
 
       {/* Stats Section - Half on image, half hanging below */}
-      <div className="relative z-20 -mt-16">
+      <div className="relative z-20 -mt-8 sm:-mt-12 md:-mt-16">
         <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 bg-white shadow-xl rounded-lg overflow-hidden">
             {/* Articles */}
