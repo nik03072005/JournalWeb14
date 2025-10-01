@@ -42,7 +42,7 @@ export default function Navbar() {
 
   return (
     <header
-      className="bg-white text-gray-800 shadow-md border-b"
+      className="bg-white text-gray-800 shadow-md border-b relative z-[100]"
       style={{ backgroundColor: '#ffffff' }}
       aria-label="Main Navigation"
     >
@@ -89,7 +89,7 @@ export default function Navbar() {
               />
             </button>
             {browseOpen && (
-              <div className="absolute top-full left-0 pt-2 w-56 z-50" id="browse-dropdown">
+              <div className="absolute top-full left-0 pt-2 w-56 z-[110]" id="browse-dropdown">
                 <div className="bg-white border border-gray-200 rounded-lg shadow-lg">
                   <div className="py-2 max-h-96 overflow-y-auto">
                     {browseOptions.map((option) => (
@@ -147,7 +147,7 @@ export default function Navbar() {
 
       {/* Simple Mobile Menu */}
       {open && (
-        <div className="md:hidden border-t border-gray-200 bg-white">
+        <div className="md:hidden border-t border-gray-200 bg-white relative z-[110]">
           <div className="px-4 py-4 space-y-2">
             <Link
               href="/"

@@ -127,9 +127,7 @@ export default function Home() {
         {/* Dark overlay for better text visibility - covers entire image */}
         <div className="absolute inset-0 bg-black/50 z-0"></div>
         
-        <div className="relative z-10">
-          <Navbar />
-        </div>
+        <Navbar />
 
         {/* Content container */}
         <div className="relative z-10 flex-1 flex flex-col justify-center items-center pb-16 sm:pb-20 md:pb-24">
